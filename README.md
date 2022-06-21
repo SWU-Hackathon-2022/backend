@@ -1,2 +1,39 @@
-# backend
-backend repository for MO.I.
+# 모.아이. (모두의 아이돌) Back-end Repository
+
+<span style="color:	#fef01b">SW 중심대학 공동해커톤 '팀 이름'팀</span>
+
+## 대표 이미지
+
+## 팀원 소개
+
+1. 인하대학교 컴퓨터공학과 조민호<br>
+   ![깃허브 프로필사진 (2)](https://user-images.githubusercontent.com/66549638/174716439-67e300df-919e-4c54-a0ac-f269d0513de9.jpg) <br>
+   안녕하세요! 인하대학교 컴퓨터공학과에 3학년으로 재학 중인 조민호입니다! <br>
+   이번 모.아이. 프로젝트에 Spring Boot를 활용한 백엔드 파트로 참여하게 되었습니다. <br>
+   비교적 백엔드 파트라는 진로를 늦게 정해서 다른 개발자 분들에 비해 실력이 많이 부족하지만, 어떠한 일을 맡게 되어도 끝까지 해내는 성격과 소통을 중시하려는 태도를 가지고 있습니다. <br>
+   많은 대단하신 분들 사이에서 많은 것을 배워가려고 노력하겠습니다! <br>
+
+## 프로젝트 배경 / 목표
+
+## 동작 방식
+
+## 개발 / 배포 환경
+
+1. 프레임워크
+   - Spring Boot
+2. DB
+   - MySQL, Redis
+3. IDE
+   - IntelliJ IDEA
+4. 서버 (배포 환경)
+   - Ubuntu xx.xx (TODO : 버전)
+
+// Tech Stack 확정 후 그림 첨부 예정
+
+## 테스트 환경
+
+1. Junit
+
+## 영상 유튜브 링크
+
+## 참가자 코멘트
