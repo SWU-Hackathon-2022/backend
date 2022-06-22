@@ -15,13 +15,9 @@ public class Music extends BaseEntity {
     @Column(name = "msc_id")
     private Long musicId;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "msc_comp_id")
     private Member composer;
-
-    @OneToOne
-    @JoinColumn(name = "msc_art_id")
-    private Member artist;
 
     @Column(name = "msc_name")
     private String name;

@@ -20,7 +20,7 @@ public class Creation extends BaseEntity {
     @JoinColumn(name = "msc_id")
     private Music music;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mbr_id")
     private Member artist;
 
