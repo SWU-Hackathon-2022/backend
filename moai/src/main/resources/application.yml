@@ -25,6 +25,11 @@ spring:
     basename: i18n/exception
     encoding: UTF-8
 
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
 logging.level:
   org.hibernate.SQL: debug
 # org.hibernate.type: trace

@@ -1,5 +1,8 @@
 package MOAI.moai.common.login;
 
+import MOAI.moai.member.Member;
+import MOAI.moai.member.repository.MemberRepository;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -20,4 +23,5 @@ public class LoginUser {
         }
 
     }
+
 }
