@@ -42,5 +42,26 @@ public class Music extends BaseEntity {
     @Column(name = "msc_like_num")
     private Integer likeNum;
 
+    private void init(Member composer, String name, Genre genre, String introduction, String hashTag, String fileUrl,
+                      String thumbnailUrl) {
+        this.composer = composer;
+        this.name = name;
+        this.genre = genre;
+        this.introduction = introduction;
+        this.hashTag = hashTag;
+        this.fileUrl = fileUrl;
+        this.thumbnailUrl = thumbnailUrl;
+        this.likeNum = 0;
+    }
+
+    public static Music createMusic(Member composer, String name, Genre genre, String introduction, String hashTag, String fileUrl,
+                                    String thumbnailUrl) {
+        Music music = new Music();
+        music.init(composer, name, genre, introduction, hashTag, fileUrl, thumbnailUrl);
+
+        return music;
+
+    }
+
 
 }
