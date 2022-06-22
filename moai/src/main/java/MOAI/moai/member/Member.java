@@ -19,6 +19,9 @@ public class Member extends BaseEntity {
     @Column(insertable = false, updatable = false)
     private String dtype;
 
+    @Column(name = "mbr_prof_img_url")
+    private String profileImgUrl;
+
     @Column(name = "mbr_login_id")
     private String loginId;
 
@@ -31,8 +34,21 @@ public class Member extends BaseEntity {
     @Column(name = "mbr_nickname")
     private String nickName;
 
-    @Column(name = "mbr_email")
-    private String email;
+    private void init (String dtype, String profileImgUrl, String loginId, String password, String name,
+                   String nickName) {
+        this.dtype = dtype;
+        this.profileImgUrl = profileImgUrl;
+        this.loginId = loginId;
+        this.password = password;
+        this.name = name;
+        this.nickName = nickName;
+    }
 
+    public static Member createMember(String dtype, String profileImgUrl, String loginId, String password, String name,
+                                      String nickName) {
+        Member member = new Member();
+        member.init(dtype, profileImgUrl, loginId, password, name, nickName);
+        return member;
+    }
 
 }

@@ -19,7 +19,7 @@ public enum BaseResponseStatus {
      */
     // Common
     REQUEST_ERROR(false, 2000, HttpStatus.BAD_REQUEST, "입력값을 확인해주세요."),
-    INVALID_USER_JWT(false,2003, HttpStatus.FORBIDDEN, "권한이 없는 유저의 접근입니다."),
+    INVALID_USER(false,2003, HttpStatus.FORBIDDEN, "권한이 없는 유저의 접근입니다."),
 
     // users
     USERS_WRONG_LOGIN_ID(false, 2010, HttpStatus.BAD_REQUEST,  "유저 아이디 값을 확인해주세요."),
