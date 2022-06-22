@@ -22,7 +22,8 @@ public enum BaseResponseStatus {
     INVALID_USER_JWT(false,2003, HttpStatus.FORBIDDEN, "권한이 없는 유저의 접근입니다."),
 
     // users
-    USERS_EMPTY_USER_ID(false, 2010, HttpStatus.BAD_REQUEST,  "유저 아이디 값을 확인해주세요."),
+    USERS_WRONG_LOGIN_ID(false, 2010, HttpStatus.BAD_REQUEST,  "유저 아이디 값을 확인해주세요."),
+    USERS_WRONG_PASSWORD(false, 2011, HttpStatus.BAD_REQUEST,  "유저 비밀번호 값을 확인해주세요."),
 
 
 
