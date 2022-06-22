@@ -23,7 +23,6 @@ public class MemberController {
 
     private final MemberService memberService;
 
-
     @GetMapping("/mypage")
     public BaseResponse<MyPageRes> mypage(HttpServletRequest request, HttpSession session) throws BaseException {
         Long loginMemberId = getLoginMemberId(request, session);

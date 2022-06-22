@@ -1,13 +1,13 @@
 package MOAI.moai.member;
 
 import MOAI.moai.common.BaseEntity;
+import MOAI.moai.member.type.MemberType;
 import lombok.Getter;
 
 import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "dtype")
 @Getter
 public class Member extends BaseEntity {
 
@@ -16,8 +16,8 @@ public class Member extends BaseEntity {
     @Column(name = "mbr_id")
     private Long memberId;
 
-    @Column(insertable = false, updatable = false)
-    private String dtype;
+    @Enumerated(EnumType.STRING)
+    private MemberType dtype;
 
     @Column(name = "mbr_prof_img_url")
     private String profileImgUrl;
@@ -34,7 +34,7 @@ public class Member extends BaseEntity {
     @Column(name = "mbr_nickname")
     private String nickName;
 
-    private void init (String dtype, String profileImgUrl, String loginId, String password, String name,
+    private void init (MemberType dtype, String profileImgUrl, String loginId, String password, String name,
                    String nickName) {
         this.dtype = dtype;
         this.profileImgUrl = profileImgUrl;
@@ -44,7 +44,7 @@ public class Member extends BaseEntity {
         this.nickName = nickName;
     }
 
-    public static Member createMember(String dtype, String profileImgUrl, String loginId, String password, String name,
+    public static Member createMember(MemberType dtype, String profileImgUrl, String loginId, String password, String name,
                                       String nickName) {
         Member member = new Member();
         member.init(dtype, profileImgUrl, loginId, password, name, nickName);

@@ -1,6 +1,7 @@
 package MOAI.moai.test_data;
 
 import MOAI.moai.member.Member;
+import MOAI.moai.member.MemberGenre;
 import MOAI.moai.member.controller.MemberController;
 import MOAI.moai.member.genre.Genre;
 import MOAI.moai.member.repository.MemberGenreRepository;
@@ -17,6 +18,7 @@ import javax.annotation.PostConstruct;
 import javax.transaction.Transactional;
 
 import static MOAI.moai.member.Member.createMember;
+import static MOAI.moai.member.MemberGenre.createMemberGenre;
 import static MOAI.moai.music.Music.createMusic;
 
 @Component
@@ -34,6 +36,7 @@ public class TestData {
     static class InitService {
         private final MemberRepository memberRepository;
         private final MusicRepository musicRepository;
+        private final MemberGenreRepository memberGenreRepository;
 
         @Transactional
         public void init() {
@@ -53,6 +56,20 @@ public class TestData {
             memberRepository.save(member3);
             memberRepository.save(member4);
             memberRepository.save(member5);
+
+            // memberGenre 추가
+            MemberGenre memberGenre1 = createMemberGenre(member1, Genre.BALLAD);
+            MemberGenre memberGenre2 = createMemberGenre(member1, Genre.ROCK);
+            MemberGenre memberGenre3 = createMemberGenre(member2, Genre.POP);
+            MemberGenre memberGenre4 = createMemberGenre(member2, Genre.R_B);
+            MemberGenre memberGenre5 = createMemberGenre(member2, Genre.DISCO);
+
+            memberGenreRepository.save(memberGenre1);
+            memberGenreRepository.save(memberGenre2);
+            memberGenreRepository.save(memberGenre3);
+            memberGenreRepository.save(memberGenre4);
+            memberGenreRepository.save(memberGenre5);
+
 
             // music 추가
             Music music1 = createMusic(member1, "노래이름1", Genre.BALLAD, "이것은 노래이름1 입니다!", "#발라드 #신남",

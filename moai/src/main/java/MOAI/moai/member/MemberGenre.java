@@ -21,4 +21,15 @@ public class MemberGenre {
     @Enumerated(EnumType.STRING)
     @Column(name = "gen_title")
     private Genre genre;
+
+    private void init(Member member, Genre genre) {
+        this.member = member;
+        this.genre = genre;
+    }
+
+    public static MemberGenre createMemberGenre(Member member, Genre genre) {
+        MemberGenre memberGenre = new MemberGenre();
+        memberGenre.init(member, genre);
+        return memberGenre;
+    }
 }
