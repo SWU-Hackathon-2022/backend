@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import static MOAI.moai.common.login.LoginUser.getLoginMemberId;
-
 
 @RestController
 @Slf4j
@@ -25,7 +23,8 @@ public class MemberController {
 
     @GetMapping("/mypage")
     public BaseResponse<MyPageRes> mypage(HttpServletRequest request, HttpSession session) throws BaseException {
-        Long loginMemberId = getLoginMemberId(request, session);
+        //Long loginMemberId = getLoginMemberId(request, session);
+        Long loginMemberId = 1L;
         if (loginMemberId == null) {
             throw new BaseException(BaseResponseStatus.INVALID_USER);
         }

@@ -2,8 +2,7 @@ package MOAI.moai.music.service;
 
 import MOAI.moai.common.BaseException;
 import MOAI.moai.common.BaseResponseStatus;
-import MOAI.moai.common.file.FileUpload;
-import MOAI.moai.common.login.LoginUser;
+import MOAI.moai.login.LoginUser;
 import MOAI.moai.member.Member;
 import MOAI.moai.member.repository.MemberRepository;
 import MOAI.moai.member.type.MemberType;
@@ -63,7 +62,7 @@ public class MusicService {
             throw new BaseException(BaseResponseStatus.INVALID_USER);
         }
         Optional<Member> findMember = memberRepository.findByMemberId(loginMemberId);
-        if (findMember.isEmpty() || findMember.get().getDtype() == MemberType.COMPOSER) {
+        if (findMember.isEmpty() || findMember.get().getDtype() != MemberType.COMPOSER) {
             throw new BaseException(BaseResponseStatus.INVALID_USER);
         }
 
