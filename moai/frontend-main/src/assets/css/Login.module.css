@@ -1,3 +1,16 @@
+.background {
+  background: #f6f6f6 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+
 .logo__image {
   width: 20%;
+}
+
+.Copyright {
+  color: #808080;
+  font-size: 11px;
+  font-weight: 100;
+  text-align: center;
+  margin: 20px;
 }

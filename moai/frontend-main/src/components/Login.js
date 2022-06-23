@@ -83,26 +83,12 @@ const Login = () => {
                   <Col lg={12} md={12} className="mb-3">
                     {/* Username */}
                     <Form.Label>ID </Form.Label>
-                    <Form.Control
-                      type="text"
-                      id="nickname"
-                      placeholder="아이디를 입력하세요"
-                      value={nickname}
-                      onChange={handleNickname}
-                      required
-                    />
+                    <Form.Control type="text" id="nickname" placeholder="아이디를 입력하세요" value={nickname} onChange={handleNickname} required />
                   </Col>
                   <Col lg={12} md={12} className="mb-3">
                     {/* Password */}
                     <Form.Label>비밀번호 </Form.Label>
-                    <Form.Control
-                      type="password"
-                      id="password"
-                      placeholder="**************"
-                      value={password}
-                      onChange={handlePassword}
-                      required
-                    />
+                    <Form.Control type="password" id="password" placeholder="**************" value={password} onChange={handlePassword} required />
                   </Col>
 
                   <Col lg={12} md={12} className="mb-0 d-grid gap-2">

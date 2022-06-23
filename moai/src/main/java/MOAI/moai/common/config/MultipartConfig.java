@@ -8,10 +8,10 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 @Configuration
 public class MultipartConfig {
 
-    @Bean
+    /*@Bean
     public MultipartResolver multipartResolver() {
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
         multipartResolver.setMaxUploadSize(2000000000);
         return multipartResolver;
-    }
+    }*/
 }

@@ -25,56 +25,55 @@ const Message = (props) => {
 
   const baseURL = "http://localhost:8080";
 
-  const [messageList, setMessageList] = useState({
-    artistName: "",
-    artistProfileImgUrl: "",
-    content: "",
-    time: "",
-  });
+  // const [messageList, setMessageList] = useState({
+  //   artistName: "",
+  //   artistProfileImgUrl: "",
+  //   content: "",
+  //   time: "",
+  // });
 
-  useEffect(() => {
-    const getUserDataFromServer = async () => {
-      const response = await axios.get(`${baseURL}/note`, {
-        "Content-Type": "application/json",
-        "Cross-Control-Allow-Origin": "*",
-      });
-      const responseData = await response.data.result;
-      setMessageList(responseData);
-    };
+  // useEffect(() => {
+  //   const getUserDataFromServer = async () => {
+  //     const response = await axios.get(`${baseURL}/note`, {
+  //       "Content-Type": "application/json",
+  //       "Cross-Control-Allow-Origin": "*",
+  //     });
+  //     const responseData = await response.data.result;
+  //     setMessageList(responseData);
+  //   };
 
-    try {
-      getUserDataFromServer();
-    } catch (err) {
-      console.error(err);
-    }
-  }, []);
+  //   try {
+  //     getUserDataFromServer();
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // }, []);
 
-  //   const messageList = [
-  //     {
-  //       id: 0,
-  //       image: "https://2e4efd3ddd5ec0b50028-7d521b783d142fa14612a0034dea730a.ssl.cf2.rackcdn.com/gallery/2008/08/3190854_1316217600_gallery_image_3072799.jpg",
-  //       name: "김나비",
-  //       message: "안녕하세요 같이 협업 할 수 있을까요 알아맞춰보세요 딩동댕동 커피잔",
-  //       time: "22.06.30",
-  //     },
-  //     {
-  //       id: 1,
-  //       image: "https://farm8.staticflickr.com/7007/6392178127_177ea51b56_b.jpg",
-  //       name: "비욘세",
-  //       message: "노래가 너무 좋아요!",
-  //       time: "22.06.22",
-  //     },
-  //   ];
+  const messageList = [
+    {
+      id: 0,
+      image: "https://2e4efd3ddd5ec0b50028-7d521b783d142fa14612a0034dea730a.ssl.cf2.rackcdn.com/gallery/2008/08/3190854_1316217600_gallery_image_3072799.jpg",
+      name: "김철수",
+      message: "안녕하세요! 저는 음악을 전공하고 있는 김철수입니다.",
+      time: "22.06.24",
+    },
+    {
+      id: 1,
+      image: "https://farm8.staticflickr.com/7007/6392178127_177ea51b56_b.jpg",
+      name: "장나라",
+      message: "노래가 너무 좋아요!",
+      time: "22.06.22",
+    },
+    {
+      id: 3,
+      image: "https://www.w3schools.com/html/pic_trulli.jpg",
+      name: "현빈",
+      message: "인디 음악을 사랑하는 사람으로서 이런 음악이 있다는게 너무 좋네요.",
+      time: "22.06.20",
+    },
+  ];
 
-  const messagelist = messageList.map((event) => (
-    <MessageCard
-      id={event.id}
-      image={event.image}
-      name={event.name}
-      message={event.message}
-      time={event.time}
-    />
-  ));
+  const messagelist = messageList.map((event) => <MessageCard id={event.id} image={event.image} name={event.name} message={event.message} time={event.time} />);
 
   return (
     <div className={cx("background-grey")}>

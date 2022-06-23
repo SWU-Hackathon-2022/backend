@@ -1,4 +1,4 @@
-.background-grey {
+.background {
   background: #f6f6f6;
 }
 
@@ -19,6 +19,7 @@
   letter-spacing: 0px;
   color: #000000;
   opacity: 1;
+  margin-bottom: 2px;
 }
 
 .message__image {
@@ -85,7 +86,7 @@
   align-content: flex-end;
   justify-content: flex-start;
   align-items: flex-end;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .message {
@@ -117,7 +118,7 @@
 }
 
 .my-message-bubble__text {
-  color: #707070;
+  color: #f6f6f6;
   font-size: 12px;
 }
 
@@ -149,4 +150,27 @@
   bottom: 0;
   position: fixed;
   color: #707070;
+}
+
+.button {
+  border-radius: 0 !important;
+  border: none !important;
+  background-color: #2f65c2 !important;
+  color: white;
+  font-size: 14px !important;
+  padding: 10px !important;
+}
+
+.subheading {
+  margin-left: 5px;
+  font-weight: 600;
+}
+
+.textarea {
+  font-size: 14px;
+}
+
+.end_message {
+  font-size: 12px;
+  margin-bottom: 15px;
 }
