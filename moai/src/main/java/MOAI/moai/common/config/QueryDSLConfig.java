@@ -7,6 +7,9 @@ import org.springframework.context.annotation.Configuration;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+/**
+ *  QueryDSL 설정 클래스
+ */
 @Configuration
 public class QueryDSLConfig {
 

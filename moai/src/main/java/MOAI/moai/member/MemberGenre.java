@@ -5,6 +5,10 @@ import lombok.Getter;
 
 import javax.persistence.*;
 
+/**
+ *  사용자에 대한 주요 장르
+ *  일대다 관계이기 때문에 따로 객체를 두어서 표현
+ */
 @Entity
 @Getter
 public class MemberGenre {

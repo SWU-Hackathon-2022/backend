@@ -15,6 +15,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ *  컨트롤러 공통 예외 처리 로직
+ */
 @RestControllerAdvice
 public class CustomRestExceptionHandler {
 

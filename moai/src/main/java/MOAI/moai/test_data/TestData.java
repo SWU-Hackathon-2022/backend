@@ -25,12 +25,15 @@ import static MOAI.moai.member.Member.createMember;
 import static MOAI.moai.member.MemberGenre.createMemberGenre;
 import static MOAI.moai.music.Music.createMusic;
 
+/**
+ *  Test Data (for test)
+ */
 @Component
 @RequiredArgsConstructor
 @Slf4j
 public class TestData {
 
-    private final InitService initService;
+    /*private final InitService initService;
 
     @PostConstruct
     public void init() { initService.init(); }
@@ -48,11 +51,11 @@ public class TestData {
         public void init() {
 
             // member 추가
-            Member member1 = createMember(MemberType.COMPOSER, "token1", "김작곡닉네임");
-            Member member2 = createMember(MemberType.COMPOSER, "token2", "이작곡닉네임");
-            Member member3 = createMember(MemberType.ARTIST, "token3", "김아티스트닉네임");
-            Member member4 = createMember(MemberType.ARTIST, "token4", "이아티스트닉네임");
-            Member member5 = createMember(MemberType.ARTIST, "token5", "박아티스트닉네임");
+            Member member1 = createMember(MemberType.COMPOSER, "token1", "/member/thumbnail/memberThumbnail1.jpg", "김작곡닉네임");
+            Member member2 = createMember(MemberType.COMPOSER, "token2", "/member/thumbnail/memberThumbnail2.jpg","이작곡닉네임");
+            Member member3 = createMember(MemberType.ARTIST, "token3", "/member/thumbnail/memberThumbnail3.jpg","김아티스트닉네임");
+            Member member4 = createMember(MemberType.ARTIST, "token4","/member/thumbnail/memberThumbnail4.jpg", "이아티스트닉네임");
+            Member member5 = createMember(MemberType.ARTIST, "token5", "/member/thumbnail/memberThumbnail5.jpg","박아티스트닉네임");
             memberRepository.save(member1);
             memberRepository.save(member2);
             memberRepository.save(member3);
@@ -75,20 +78,20 @@ public class TestData {
 
             // music 추가
             Music music1 = createMusic(member1, "노래이름1", Genre.BALLAD, "이것은 노래이름1 입니다!", "#발라드 #신남",
-                    File.separator + "resources" + File.separator + "musicFile" + File.separator + "musicFile1.mp3",
-                    File.separator + "resources" + File.separator + "musicThumbnail" + File.separator + "musicThumbnail1.png");
+                    "/music/file/musicFile1.mp3",
+                    "/music/thumbnail/musicThumbnail1.png");
             Music music2 = createMusic(member1, "노래이름2", Genre.POP, "이것은 노래이름2 입니다!", "#팝 #신남",
-                    File.separator + "resources" + File.separator + "musicFile" + File.separator + "musicFile2.mp3",
-                    File.separator + "resources" + File.separator + "musicThumbnail" + File.separator + "musicThumbnail2.jpg");
+                    "/music/file/musicFile2.mp3",
+                    "/music/thumbnail/musicThumbnail2.jpg");
             Music music3 = createMusic(member1, "노래이름3", Genre.ROCK, "이것은 노래이름3 입니다!", "#락 #신남",
-                    File.separator + "resources" + File.separator + "musicFile" + File.separator + "musicFile3.mp3",
-                    File.separator + "resources" + File.separator + "musicThumbnail" + File.separator + "musicThumbnail3.png");
+                    "/music/file/musicFile3.mp3",
+                    "/music/thumbnail/musicThumbnail3.png");
             Music music4 = createMusic(member2, "노래이름4", Genre.DANCE, "이것은 노래이름4 입니다!", "#댄스 #신남",
-                    File.separator + "resources" + File.separator + "musicFile" + File.separator + "musicFile4.mp3",
-                    File.separator + "resources" + File.separator + "musicThumbnail" + File.separator + "musicThumbnail4.jpg");
+                    "/music/file/musicFile4.mp3",
+                    "/music/thumbnail/musicThumbnail4.jpg");
             Music music5 = createMusic(member2, "노래이름5", Genre.DISCO, "이것은 노래이름5 입니다!", "#디스코 #신남",
-                    File.separator + "resources" + File.separator + "musicFile" + File.separator + "musicFile5.mp3",
-                    File.separator + "resources" + File.separator + "musicThumbnail" + File.separator + "musicThumbnail5.jpg");
+                    "/music/file/musicFile5.mp3",
+                    "/music/thumbnail/musicThumbnail5.jpg");
 
             musicRepository.save(music1);
             musicRepository.save(music2);
@@ -123,6 +126,6 @@ public class TestData {
             noteRepository.save(note5);
             noteRepository.save(note6);
         }
-    }
+    }*/
 
 }

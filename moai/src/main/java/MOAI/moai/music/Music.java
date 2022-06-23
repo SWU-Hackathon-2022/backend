@@ -7,6 +7,9 @@ import lombok.Getter;
 
 import javax.persistence.*;
 
+/**
+ *  Music 객체
+ */
 @Entity
 @Getter
 public class Music extends BaseEntity {
@@ -54,6 +57,10 @@ public class Music extends BaseEntity {
         this.likeNum = 0;
     }
 
+    /**
+     *
+     *  Music 생성 메서드
+     */
     public static Music createMusic(Member composer, String name, Genre genre, String introduction, String hashTag, String fileUrl,
                                     String thumbnailUrl) {
         Music music = new Music();

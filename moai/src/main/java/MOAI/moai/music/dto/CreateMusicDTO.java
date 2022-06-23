@@ -6,6 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.web.multipart.MultipartFile;
 
+/**
+ *  곡 생성 DTO
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

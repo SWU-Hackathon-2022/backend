@@ -17,6 +17,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
+/**
+ *  Note(쪽지) 관련 Controller
+ */
 @RestController
 @RequiredArgsConstructor
 @Slf4j
@@ -24,6 +27,10 @@ public class NoteController {
 
     private final NoteService noteService;
 
+    /**
+     *
+     *  2차 창착자 -> 1차 창작자 쪽지 전송
+     */
     @PostMapping("/note/composer")
     public BaseResponse<String> sendNoteToComposer(@RequestBody SendNoteDTO dto, HttpServletRequest request)
             throws BaseException {
@@ -31,6 +38,10 @@ public class NoteController {
         return new BaseResponse<>(BaseResponseStatus.SUCCESS);
     }
 
+    /**
+     *
+     *  1차 창작자의 수락 쪽지 전송
+     */
     @PostMapping("/note/artist/accept")
     public BaseResponse<String> sendAcceptNoteToArtist(@RequestBody SendReplyDTO dto, HttpServletRequest request)
             throws BaseException {
@@ -38,6 +49,10 @@ public class NoteController {
         return new BaseResponse<>(BaseResponseStatus.SUCCESS);
     }
 
+    /**
+     *
+     *  1차 창작자의 거절 쪽지 전송
+     */
     @PostMapping("/note/artist/decline")
     public BaseResponse<String> sendDeclineNoteToArtist(@RequestBody SendReplyDTO dto, HttpServletRequest request)
             throws BaseException {
@@ -45,12 +60,20 @@ public class NoteController {
         return new BaseResponse<>(BaseResponseStatus.SUCCESS);
     }
 
+    /**
+     *
+     *  특정 사용자의 모든 쪽지 list 반환 API
+     */
     @GetMapping("/note")
     public BaseResponse<List<NoteListRes>> getAllNotes(HttpServletRequest request) throws BaseException {
 
         return new BaseResponse<>(noteService.getAllNotesByMember(request));
     }
 
+    /**
+     *
+     *  특정 쪽지 상세 API
+     */
     @GetMapping("/{noteId}/note")
     public BaseResponse<NoteDetailRes> getOneNoteDetail(@PathVariable Long noteId, HttpServletRequest request)
             throws BaseException {

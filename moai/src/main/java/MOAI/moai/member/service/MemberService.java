@@ -18,6 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ *  Member 관련 Service
+ */
 @Service
 @Slf4j
 @RequiredArgsConstructor
@@ -28,6 +31,10 @@ public class MemberService {
     private final MemberGenreRepository memberGenreRepository;
     private final MusicRepository musicRepository;
 
+    /**
+     *
+     *  마이페이지 정보 반환 메서드
+     */
     public MyPageRes getMyPageInfo (Long memberId) {
         Optional<Member> findMember = memberRepository.findByMemberId(memberId);
         if (findMember.isEmpty()) {
@@ -45,6 +52,7 @@ public class MemberService {
             result.setMemberId(findMember.get().getMemberId());
             result.setNickName(findMember.get().getNickName());
             result.setGenreList(genreList);
+            result.setThumbNailUrl(findMember.get().getMemberThumbnailUrl());
 
             result.setMusicResList(MyPageMusicRes.createMyPageMusicResList(musicList));
 

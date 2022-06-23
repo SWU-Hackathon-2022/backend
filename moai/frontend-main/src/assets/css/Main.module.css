@@ -1,0 +1,149 @@
+.Main {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.MainHeader {
+  background-color: #f6f6f6;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 60;
+  padding: 12.5px 22px;
+}
+
+.MainHeader__logo {
+  font-family: "Noto Sans KR";
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.MainImgAndTag {
+  width: 375px;
+  height: 375px;
+  padding: 0px;
+  margin: 0px;
+  position: relative;
+
+  background: linear-gradient(top, black, rgba(255, 255, 255, 0));
+}
+
+.MainImgAndTag img {
+  display: inline-block;
+}
+
+.MainImgAndTag__flex {
+  display: flex;
+  flex-direction: row;
+}
+
+.MainImgAndTag ul {
+  list-style: none;
+  position: absolute;
+  right: 30px;
+  top: 26px;
+}
+
+.MainImgAndTag ul li {
+  width: 59px;
+  height: 22px;
+  font-size: 12px;
+  font-weight: 300;
+
+  background-color: black;
+  color: white;
+  border-radius: 300px;
+  text-align: center;
+  padding-top: 1px;
+  margin-left: 7px;
+}
+
+.MainImgAndTag__ltgt {
+  width: 100%;
+  padding: 0 22px;
+  color: #ffffff;
+
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.ProfileImgAndTitle {
+  position: absolute;
+  left: 22px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+}
+
+.ProfileImgAndTitle img {
+  width: 40px;
+  height: 40px;
+}
+
+.ProfileImgAndTitle p {
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+.MusicTitleAndDescription {
+  padding: 17px 28px;
+  background-color: #ffffff;
+}
+
+.MusicTitleAndDescription h3 {
+  font-family: "Noto Sans KR";
+  font-size: 23px;
+  margin: 0 0 7px 0;
+}
+
+.MusicTitleAndDescription p {
+  font-family: "Noto Sans KR";
+  font-size: 11px;
+  font-weight: 100;
+}
+
+.Main__button {
+  font-family: "Noto Sans KR";
+  font-size: 14px;
+
+  width: 331px;
+  height: 42px;
+  margin: 0 auto;
+
+  color: white;
+
+  background-color: #2f65c2;
+  border: none;
+}
+
+.MusicTitleAndDescription__genre {
+  box-sizing: border-box;
+  background-color: black;
+  display: inline-block;
+  color: white;
+  padding: 1px 6px;
+  padding-top: 3px;
+  margin-bottom: 7px;
+}
+
+.MusicTitleAndDescription__genre h5 {
+  font-family: "Noto Sans KR";
+  font-weight: 50;
+  font-size: 14px;
+}

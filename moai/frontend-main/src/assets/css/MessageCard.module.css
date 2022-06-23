@@ -1,0 +1,152 @@
+.background-grey {
+  background: #f6f6f6;
+}
+
+.message-card {
+  background-color: white;
+  padding: 18px 14px;
+  box-shadow: 0px 2px 6px #0000000d;
+  opacity: 1;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.message__logo {
+  width: 52px;
+  height: 35px;
+  text-align: center;
+  font: normal normal 900 24px/35px Noto Sans KR;
+  letter-spacing: 0px;
+  color: #000000;
+  opacity: 1;
+}
+
+.message__image {
+  border-radius: 50%;
+  border: 1px solid black;
+  width: 44px;
+  height: 44px;
+  float: left;
+}
+
+.message__name {
+  color: #090909;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.message__text {
+  color: #707070;
+  width: 182px;
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+}
+
+.message__time {
+  color: #a5a5a5;
+  font-size: 12px;
+}
+
+.message__button--bottom {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+}
+
+.bottom-button {
+  border-radius: 0 !important;
+  border: none !important;
+  width: 166px;
+  height: 52px;
+}
+
+.text-muted {
+  position: fixed;
+  bottom: 60px;
+  color: #b1b1b1;
+  font-size: 12px;
+}
+
+.grey {
+  background-color: #a5a5a5 !important;
+}
+
+.blue {
+  background-color: #2f65c2 !important;
+}
+
+.message-bubble {
+  display: flex;
+  flex-direction: row;
+  align-content: flex-end;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
+
+.message {
+  width: 250px;
+  padding: 10px;
+  margin-right: 5px;
+}
+
+.message-bubble__text {
+  color: #707070;
+  font-size: 12px;
+}
+
+.my-message-bubble {
+  display: flex;
+  flex-direction: row;
+  align-content: flex-end;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
+
+.my-message {
+  width: 250px;
+  padding: 10px;
+  margin-right: 5px;
+  background-color: black !important;
+  margin-left: 5px;
+}
+
+.my-message-bubble__text {
+  color: #707070;
+  font-size: 12px;
+}
+
+.sendButton {
+  background: none !important;
+  color: black !important;
+  border: none !important;
+  width: fit-content !important;
+}
+
+.sendTextarea {
+  width: 100%;
+  font-size: 12px;
+}
+.sendTextarea__text {
+  width: 100%;
+  padding: 10px !important;
+  font-size: 12px !important;
+}
+
+.message-send--bottom {
+  position: fixed;
+  bottom: 20px;
+}
+
+.end-message--bottom {
+  display: flex;
+  justify-content: center;
+  bottom: 0;
+  position: fixed;
+  color: #707070;
+}

@@ -12,6 +12,9 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.PrePersist;
 import java.time.LocalDateTime;
 
+/**
+ *  각 엔티티 공통 속성 : 생성일자
+ */
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 @Getter

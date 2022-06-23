@@ -10,6 +10,9 @@ import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 
+/**
+ *  Note(쪽지) Entity
+ */
 @Entity
 @Getter
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)

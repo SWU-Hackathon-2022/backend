@@ -7,6 +7,11 @@ import lombok.Getter;
 
 import javax.persistence.*;
 
+/**
+ *
+ *  TODO : 2차 창작물
+ *  1차 창작자의 작품에 대한 2차 창작자의 창작물 (영상, 곡)
+ */
 @Entity
 @Getter
 public class Creation extends BaseEntity {

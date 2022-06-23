@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+/**
+ *  쪽지 상세 Response 객체
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

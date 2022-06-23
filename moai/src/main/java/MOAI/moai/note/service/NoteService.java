@@ -26,6 +26,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ *  쪽지 관련 Service
+ */
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -35,9 +38,14 @@ public class NoteService {
     private final MusicRepository musicRepository;
     private final NoteRepository noteRepository;
     private final MemberRepository memberRepository;
+    private final LoginUser loginUser;
 
+    /**
+     *
+     *  특정 사용자의 전체 쪽지 목록 조회 메서드
+     */
     public List<NoteListRes> getAllNotesByMember(HttpServletRequest request) throws BaseException {
-        Long loginMemberId = LoginUser.getLoginMemberId(request);
+        Long loginMemberId = loginUser.getLoginMemberId(request);
         if (loginMemberId == null) {
             throw new BaseException(BaseResponseStatus.INVALID_USER);
         }
@@ -49,7 +57,7 @@ public class NoteService {
 
         List<NoteListRes> result = new ArrayList<>();
 
-        // 1차 창작자
+        // 1차 창작자일 경우
         if (member.getDtype() == MemberType.COMPOSER) {
             List<Music> musicList = musicRepository.findAllByComposer(member);
             for (Music music : musicList) {
@@ -61,6 +69,7 @@ public class NoteService {
                 }
             }
         }
+        // 2차 창작자일 경우
         else {
             List<Note> noteList = noteRepository.findAllByMember(member);
             for (Note note : noteList) {
@@ -74,9 +83,13 @@ public class NoteService {
 
     }
 
+    /**
+     *
+     *  1개의 쪽지 상세 조회 메서드
+     */
     public NoteDetailRes getOneNoteDetail(Long noteId, HttpServletRequest request) throws BaseException {
         // 현재 로그인된 사용자 조회
-        Long loginMemberId = LoginUser.getLoginMemberId(request);
+        Long loginMemberId = loginUser.getLoginMemberId(request);
         if (loginMemberId == null) {
             throw new BaseException(BaseResponseStatus.INVALID_USER);
         }
@@ -109,11 +122,15 @@ public class NoteService {
 
     }
 
+    /**
+     *
+     *  2차 창작자 -> 1차 창작자 쪽지 전송 메서드
+     */
     public void sendArtistToComposerNote(HttpServletRequest request, SendNoteDTO dto) throws BaseException {
         Optional<Music> findMusic = musicRepository.findByMusicId(dto.getMusicId());
 
         // 현재 로그인된 사용자 조회
-        Long loginMemberId = LoginUser.getLoginMemberId(request);
+        Long loginMemberId = loginUser.getLoginMemberId(request);
         if (loginMemberId == null) {
             throw new BaseException(BaseResponseStatus.INVALID_USER);
         }
@@ -130,9 +147,13 @@ public class NoteService {
 
     }
 
+    /**
+     *
+     *  1차 창작자의 수락 쪽지 전송 메서드
+     */
     public void sendAcceptToArtistNote(HttpServletRequest request, SendReplyDTO dto) throws BaseException {
         // 현재 로그인된 사용자 조회
-        Long loginMemberId = LoginUser.getLoginMemberId(request);
+        Long loginMemberId = loginUser.getLoginMemberId(request);
         if (loginMemberId == null) {
             throw new BaseException(BaseResponseStatus.INVALID_USER);
         }
@@ -151,9 +172,13 @@ public class NoteService {
         noteRepository.save(note);
     }
 
+    /**
+     *
+     *  1차 창작자의 거절 쪽지 전송 메서드
+     */
     public void sendDeclineToArtistNote(HttpServletRequest request, SendReplyDTO dto) throws BaseException {
         // 현재 로그인된 사용자 조회
-        Long loginMemberId = LoginUser.getLoginMemberId(request);
+        Long loginMemberId = loginUser.getLoginMemberId(request);
         if (loginMemberId == null) {
             throw new BaseException(BaseResponseStatus.INVALID_USER);
         }

@@ -12,6 +12,15 @@ import java.time.LocalDateTime;
 
 import static MOAI.moai.common.BaseResponseStatus.SUCCESS;
 
+/**
+ *
+ *  공통 Response
+ *  1. responseTime : 응답 시간
+ *  2. isSuccess    : 성공 여부
+ *  3. code         : 응답 코드
+ *  4. message      : 응답 메시지
+ *  5. result       : 응답 결과
+ */
 @Getter
 @AllArgsConstructor
 @JsonPropertyOrder({"responseTime", "isSuccess", "code", "message", "result"})

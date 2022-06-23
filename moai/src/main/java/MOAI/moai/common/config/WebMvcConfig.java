@@ -5,6 +5,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ *  정적 리소스 핸들링 커스터마이징
+ *  1. member 프로필 사진 URL
+ *  2. music 썸네일 사진 URL
+ *  3. music 파일 URL
+ */
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
 
