@@ -5,6 +5,7 @@ import MOAI.moai.member.Member;
 import MOAI.moai.music.Music;
 import MOAI.moai.note.type.NoteType;
 import lombok.Getter;
+import org.aspectj.weaver.ast.Not;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
@@ -91,5 +92,19 @@ public class Note extends BaseEntity {
         return newNote;
     }
 
+
+    private void init(Music music, Member member, Note note, NoteType dtype, String content) {
+        this.music = music;
+        this.member = member;
+        this.note = note;
+        this.dtype = dtype;
+        this.content = content;
+    }
+
+    public static Note createNote(Music music, Member member, Note note, NoteType dtype, String content) {
+        Note newNote = new Note();
+        newNote.init(music, member, note, dtype, content);
+        return newNote;
+    }
 
 }
