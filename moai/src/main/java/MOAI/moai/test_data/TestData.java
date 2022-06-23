@@ -51,11 +51,11 @@ public class TestData {
         public void init() {
 
             // member 추가
-            Member member1 = createMember(MemberType.COMPOSER, "token1", "/member/thumbnail/memberThumbnail1.jpg", "김작곡닉네임");
-            Member member2 = createMember(MemberType.COMPOSER, "token2", "/member/thumbnail/memberThumbnail2.jpg","이작곡닉네임");
-            Member member3 = createMember(MemberType.ARTIST, "token3", "/member/thumbnail/memberThumbnail3.jpg","김아티스트닉네임");
-            Member member4 = createMember(MemberType.ARTIST, "token4","/member/thumbnail/memberThumbnail4.jpg", "이아티스트닉네임");
-            Member member5 = createMember(MemberType.ARTIST, "token5", "/member/thumbnail/memberThumbnail5.jpg","박아티스트닉네임");
+            Member member1 = createMember(MemberType.COMPOSER, "token1", "/member/thumbnail/memberThumbnail1.jpg", "피터");
+            Member member2 = createMember(MemberType.COMPOSER, "token2", "/member/thumbnail/memberThumbnail2.jpg","필립");
+            Member member3 = createMember(MemberType.ARTIST, "token3", "/member/thumbnail/memberThumbnail3.jpg","레이");
+            Member member4 = createMember(MemberType.ARTIST, "token4","/member/thumbnail/memberThumbnail4.jpg", "리오");
+            Member member5 = createMember(MemberType.ARTIST, "token5", "/member/thumbnail/memberThumbnail5.jpg","아샤");
             memberRepository.save(member1);
             memberRepository.save(member2);
             memberRepository.save(member3);
@@ -77,19 +77,19 @@ public class TestData {
 
 
             // music 추가
-            Music music1 = createMusic(member1, "노래이름1", Genre.BALLAD, "이것은 노래이름1 입니다!", "#발라드 #신남",
+            Music music1 = createMusic(member1, "All By Myself", Genre.BALLAD, "In music, the introduction is a passage or section which opens a movement or a separate piece", "#트렌디 #재즈",
                     "/music/file/musicFile1.mp3",
                     "/music/thumbnail/musicThumbnail1.png");
-            Music music2 = createMusic(member1, "노래이름2", Genre.POP, "이것은 노래이름2 입니다!", "#팝 #신남",
+            Music music2 = createMusic(member1, "Goodbye Yellow Brick Road", Genre.POP, "an important chord or progression that establishes the tonality and groove for the following music", "#Pop #기묘한",
                     "/music/file/musicFile2.mp3",
                     "/music/thumbnail/musicThumbnail2.jpg");
-            Music music3 = createMusic(member1, "노래이름3", Genre.ROCK, "이것은 노래이름3 입니다!", "#락 #신남",
+            Music music3 = createMusic(member1, "Right Here Waiting", Genre.ROCK, "If a movement in sonata form starts with an introductory section, this introduction is not usually analyzed", "#OST #저녁",
                     "/music/file/musicFile3.mp3",
                     "/music/thumbnail/musicThumbnail3.png");
-            Music music4 = createMusic(member2, "노래이름4", Genre.DANCE, "이것은 노래이름4 입니다!", "#댄스 #신남",
+            Music music4 = createMusic(member2, "Fix You", Genre.DANCE, "an introduction that works for many songs is the last four or eight measures of the song,", "#초여름 #밤",
                     "/music/file/musicFile4.mp3",
                     "/music/thumbnail/musicThumbnail4.jpg");
-            Music music5 = createMusic(member2, "노래이름5", Genre.DISCO, "이것은 노래이름5 입니다!", "#디스코 #신남",
+            Music music5 = createMusic(member2, "The Water Is Wide", Genre.DISCO, "ntroductions may consist of an ostinato that is used in the following music", "#사랑 #힐링",
                     "/music/file/musicFile5.mp3",
                     "/music/thumbnail/musicThumbnail5.jpg");
 
@@ -112,9 +112,9 @@ public class TestData {
             creationRepository.save(creation5);
 
             // Note 추가 (2차 창작자 -> 1차 창작자)
-            Note note1 = Note.createArtistToComposerNote(music1, member3, "안녕하세요 제 이름은 김아티스트입니다. 같이 협업 할 수 있을까요. 이 음악을 사용할 수 있게 해주세요.");
-            Note note2 = Note.createArtistToComposerNote(music1, member4, "안녕하세요 제 이름은 이아티스트입니다. 같이 협업 할 수 있을까요. 이 음악을 사용할 수 있게 해주세요.");
-            Note note3 = Note.createArtistToComposerNote(music2, member5, "안녕하세요 제 이름은 박아티스트입니다. 같이 협업 할 수 있을까요. 이 음악을 사용할 수 있게 해주세요.");
+            Note note1 = Note.createArtistToComposerNote(music1, member3, "노래가 제 취향이에요! 제가 생각한 안무랑 잘 어울리는데 어떠세요??");
+            Note note2 = Note.createArtistToComposerNote(music1, member4, "조금만 편곡하면 더 좋은 곡이 될 거 같아요! 같이 작업해보실래요?");
+            Note note3 = Note.createArtistToComposerNote(music2, member5, "이 곡으로 가사를 썼는데, 이야기해보고싶어요!");
             noteRepository.save(note1);
             noteRepository.save(note2);
             noteRepository.save(note3);

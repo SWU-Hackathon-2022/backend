@@ -33,7 +33,7 @@ class MemberServiceTest {
         /**
          *  then  : result
          */
-        assertThat(myPageInfo.getNickName().equals("김작곡닉네임"));
+        assertThat(myPageInfo.getNickName().equals("피터"));
 
     }
 
