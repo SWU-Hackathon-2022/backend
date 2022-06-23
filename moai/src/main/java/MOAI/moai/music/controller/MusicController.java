@@ -36,7 +36,7 @@ public class MusicController {
      *  ****************************************************
      */
     @PostMapping("/music/new")
-    public BaseResponse<String> createNewComposerMusic(HttpServletRequest request, @RequestBody CreateMusicDTO dto) throws BaseException {
+    public BaseResponse<String> createNewComposerMusic(HttpServletRequest request, CreateMusicDTO dto) throws BaseException {
         musicService.createMusic(request, dto);
         return new BaseResponse<>(BaseResponseStatus.SUCCESS);
     }
