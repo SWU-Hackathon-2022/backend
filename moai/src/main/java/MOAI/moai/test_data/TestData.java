@@ -2,11 +2,9 @@ package MOAI.moai.test_data;
 
 import MOAI.moai.member.Member;
 import MOAI.moai.member.MemberGenre;
-import MOAI.moai.member.controller.MemberController;
 import MOAI.moai.member.genre.Genre;
 import MOAI.moai.member.repository.MemberGenreRepository;
 import MOAI.moai.member.repository.MemberRepository;
-import MOAI.moai.member.service.MemberService;
 import MOAI.moai.member.type.MemberType;
 import MOAI.moai.music.Music;
 import MOAI.moai.music.repository.MusicRepository;

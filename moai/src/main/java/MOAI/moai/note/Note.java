@@ -41,6 +41,55 @@ public class Note extends BaseEntity {
     @ColumnDefault("false")
     private Boolean isSuccess;
 
+    // 2차 창작자 -> 1차 창작자 쪽지
+    private void artistToComposerInit(Music music, Member member, String content) {
+        this.music = music;
+        this.member = member;
+        this.content = content;
+        this.dtype = NoteType.COMPOSER;
+        this.note = null;
+        this.isSuccess = false;
+    }
+
+    // 1차 창작자 -> 2차 창작자 쪽지 (수락)
+    private void acceptSuggestionInit(Music music, Member member, Note note) {
+        this.music = music;
+        this.member = member;
+        this.content = member.getNickName() + "님이 제안을 수락하셨습니다.";
+        this.dtype = NoteType.NORMAL;
+        this.note = note;
+        note.isSuccess = true;
+    }
+
+    // 1차 창작자 -> 2차 창작자 쪽지 (거절)
+    private void declineSuggestionInit(Music music, Member member, Note note) {
+        this.music = music;
+        this.member = member;
+        this.content = member.getNickName() + "님이 제안을 거절하셨습니다.";
+        this.dtype = NoteType.NORMAL;
+        this.note = note;
+    }
+
+    // 2차 창작자 -> 1차 창작자 초기 제안 쪽지
+    public static Note createArtistToComposerNote(Music music, Member member, String content) {
+        Note note = new Note();
+        note.artistToComposerInit(music, member, content);
+        return note;
+    }
+
+    // 1차 창작자 -> 2차 창작자 수락 쪽지
+    public static Note createComposerToArtistAcceptNote(Music music, Member member, Note note) {
+        Note newNote = new Note();
+        newNote.acceptSuggestionInit(music, member, note);
+        return newNote;
+    }
+
+    // 1차 창작자 -> 2차 창작자 거절 쪽지
+    public static Note createComposerToArtistDeclineNote(Music music, Member member, Note note) {
+        Note newNote = new Note();
+        newNote.declineSuggestionInit(music, member, note);
+        return newNote;
+    }
 
 
 }

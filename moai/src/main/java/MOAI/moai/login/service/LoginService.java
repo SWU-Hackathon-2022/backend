@@ -8,6 +8,7 @@ import MOAI.moai.member.Member;
 import MOAI.moai.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseCookie;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.Cookie;
@@ -31,17 +32,18 @@ public class LoginService {
         if (!findMember.get().getPassword().equals(dto.getPassword())) {
             throw new BaseException(BaseResponseStatus.USERS_WRONG_PASSWORD);
         }
-        setCookie(session, findMember.get().getMemberId(), response);
+        String cookieValue = setCookie(session, findMember.get().getMemberId(), response);
 
-        return new LoginRes(findMember.get().getMemberId(), findMember.get().getNickName(), findMember.get().getDtype());
+        return new LoginRes(cookieValue, findMember.get().getMemberId(), findMember.get().getNickName(), findMember.get().getDtype());
     }
 
 
-    private void setCookie(HttpSession session, Long memberId, HttpServletResponse response) {
+    private String setCookie(HttpSession session, Long memberId, HttpServletResponse response) {
         String key = setSession(session, memberId);
         Cookie cookie = new Cookie("id", key);
         // TODO : maxAge 설정
         response.addCookie(cookie);
+        return key;
     }
     private String setSession(HttpSession session, Long memberId) {
         String key = String.valueOf(UUID.randomUUID());
