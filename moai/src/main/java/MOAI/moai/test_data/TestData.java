@@ -20,6 +20,8 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.transaction.Transactional;
 
+import java.io.File;
+
 import static MOAI.moai.member.Member.createMember;
 import static MOAI.moai.member.MemberGenre.createMemberGenre;
 import static MOAI.moai.music.Music.createMusic;
@@ -45,16 +47,27 @@ public class TestData {
 
         @Transactional
         public void init() {
+
             // member 추가
-            Member member1 = createMember(MemberType.COMPOSER, null, "user1", "pwd1", "김작곡",
+            Member member1 = createMember(MemberType.COMPOSER,
+                    File.separator + "resources" + File.separator + "memberThumbnail" + File.separator + "회원썸네일1.jpg",
+                    "user1", "pwd1", "김작곡",
                     "김작곡닉네임");
-            Member member2 = createMember(MemberType.COMPOSER, null, "user2", "pwd2", "이작곡",
+            Member member2 = createMember(MemberType.COMPOSER,
+                    File.separator + "resources" + File.separator + "memberThumbnail" + File.separator + "회원썸네일1.jpg",
+                    "user2", "pwd2", "이작곡",
                     "이작곡닉네임");
-            Member member3 = createMember(MemberType.ARTIST, null, "user3", "pwd3", "김아티스트",
+            Member member3 = createMember(MemberType.ARTIST,
+                    File.separator + "resources" + File.separator + "memberThumbnail" + File.separator + "회원썸네일1.jpg"
+                    , "user3", "pwd3", "김아티스트",
                     "김아티스트닉네임");
-            Member member4 = createMember(MemberType.ARTIST, null, "user4", "pwd4", "이아티스트",
+            Member member4 = createMember(MemberType.ARTIST,
+                    File.separator + "resources" + File.separator + "memberThumbnail" + File.separator + "회원썸네일1.jpg"
+                    , "user4", "pwd4", "이아티스트",
                     "이아티스트닉네임");
-            Member member5 = createMember(MemberType.ARTIST, null, "user5", "pwd5", "박아티스트",
+            Member member5 = createMember(MemberType.ARTIST,
+                    File.separator + "resources" + File.separator + "memberThumbnail" + File.separator + "회원썸네일1.jpg"
+                    , "user5", "pwd5", "박아티스트",
                     "박아티스트닉네임");
             memberRepository.save(member1);
             memberRepository.save(member2);
@@ -78,15 +91,21 @@ public class TestData {
 
             // music 추가
             Music music1 = createMusic(member1, "노래이름1", Genre.BALLAD, "이것은 노래이름1 입니다!", "#발라드 #신남",
-                    null, null);
+                    File.separator + "resources" + File.separator + "musicFile" + File.separator + "음악파일1.mp3",
+                    File.separator + "resources" + File.separator + "musicThumbnail" + File.separator + "음악썸네일1.jpg");
             Music music2 = createMusic(member1, "노래이름2", Genre.POP, "이것은 노래이름2 입니다!", "#팝 #신남",
-                    null, null);
+                    File.separator + "resources" + File.separator + "musicFile" + File.separator + "음악파일2.mp3",
+                    File.separator + "resources" + File.separator + "musicThumbnail" + File.separator + "음악썸네일2.jpg");
             Music music3 = createMusic(member1, "노래이름3", Genre.ROCK, "이것은 노래이름3 입니다!", "#락 #신남",
-                    null, null);
+                    File.separator + "resources" + File.separator + "musicFile" + File.separator + "음악파일3.mp3",
+                    File.separator + "resources" + File.separator + "musicThumbnail" + File.separator + "음악썸네일3.jpg");
             Music music4 = createMusic(member2, "노래이름4", Genre.DANCE, "이것은 노래이름4 입니다!", "#댄스 #신남",
-                    null, null);
+                    File.separator + "resources" + File.separator + "musicFile" + File.separator + "음악파일4.mp3",
+                    File.separator + "resources" + File.separator + "musicThumbnail" + File.separator + "음악썸네일4.jpg");
             Music music5 = createMusic(member2, "노래이름5", Genre.DISCO, "이것은 노래이름5 입니다!", "#디스코 #신남",
-                    null, null);
+                    File.separator + "resources" + File.separator + "musicFile" + File.separator + "음악파일5.mp3",
+                    File.separator + "resources" + File.separator + "musicThumbnail" + File.separator + "음악썸네일5.jpg");
+
             musicRepository.save(music1);
             musicRepository.save(music2);
             musicRepository.save(music3);
@@ -105,16 +124,17 @@ public class TestData {
             creationRepository.save(creation4);
             creationRepository.save(creation5);
 
-            // Note 추가
-            Note note1 = Note.createNote(music1, member3, null, NoteType.ARTIST, "안녕하세요 제 이름은 김아티스트입니다. 같이 협업 할 수 있을까요. 이 음악을 사용할 수 있게 해주세요.");
-            Note note2 = Note.createNote(music1, member4, null, NoteType.ARTIST, "안녕하세요 제 이름은 이아티스트입니다. 같이 협업 할 수 있을까요. 이 음악을 사용할 수 있게 해주세요.");
-            Note note3 = Note.createNote(music1, member5, null, NoteType.ARTIST, "안녕하세요 제 이름은 박아티스트입니다. 같이 협업 할 수 있을까요. 이 음악을 사용할 수 있게 해주세요.");
+            // Note 추가 (2차 창작자 -> 1차 창작자)
+            Note note1 = Note.createArtistToComposerNote(music1, member3, "안녕하세요 제 이름은 김아티스트입니다. 같이 협업 할 수 있을까요. 이 음악을 사용할 수 있게 해주세요.");
+            Note note2 = Note.createArtistToComposerNote(music1, member4, "안녕하세요 제 이름은 이아티스트입니다. 같이 협업 할 수 있을까요. 이 음악을 사용할 수 있게 해주세요.");
+            Note note3 = Note.createArtistToComposerNote(music2, member5, "안녕하세요 제 이름은 박아티스트입니다. 같이 협업 할 수 있을까요. 이 음악을 사용할 수 있게 해주세요.");
             noteRepository.save(note1);
             noteRepository.save(note2);
             noteRepository.save(note3);
-            Note note4 = Note.createNote(music1, member1, note1, NoteType.COMPOSER, "안녕하세요 김작곡입니다. 아티스트님은 저희와 함께갑시다.");
-            Note note5 = Note.createNote(music1, member1, note2, NoteType.COMPOSER, "안녕하세요 김작곡입니다. 아티스트님은 아쉽지만 저희와 함께갈 수 없습니다.");
-            Note note6 = Note.createNote(music1, member1, note3, NoteType.COMPOSER, "안녕하세요 김작곡입니다. 아티스트님은 아쉽지만 저희와 함께갈 수 없습니다.");
+            // Note 추가 (1차 창작자 -> 2차 창작자 수락/거절)
+            Note note4 = Note.createComposerToArtistAcceptNote(music1, member3, note1);
+            Note note5 = Note.createComposerToArtistDeclineNote(music1, member4, note2);
+            Note note6 = Note.createComposerToArtistDeclineNote(music2, member5, note3);
             noteRepository.save(note4);
             noteRepository.save(note5);
             noteRepository.save(note6);

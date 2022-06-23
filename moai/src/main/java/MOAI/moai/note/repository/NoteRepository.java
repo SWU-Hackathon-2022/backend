@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public interface NoteRepository extends JpaRepository<Note, Long> {
 
-    List<Note> findALlByMusic(Music music);
+    List<Note> findAllByMusic(Music music);
     List<Note> findAllByMember(Member member);
     Optional<Note> findById(Long noteId);
 
