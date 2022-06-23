@@ -33,4 +33,18 @@ public class Creation extends BaseEntity {
     @Column(name = "ctn_like_num")
     private Integer likeNum;
 
+    private void init(Music music, Member artist, String name, String fileUrl){
+        this.music = music;
+        this.artist = artist;
+        this.name = name;
+        this.fileUrl = fileUrl;
+        this.likeNum = 0;
+    }
+
+    public static Creation createCreation(Music music, Member artist, String name, String fileUrl) {
+        Creation creation = new Creation();
+        creation.init(music, artist, name, fileUrl);
+
+        return creation;
+    }
 }
