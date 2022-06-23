@@ -33,7 +33,7 @@ import static MOAI.moai.music.Music.createMusic;
 @Slf4j
 public class TestData {
 
-    /*private final InitService initService;
+    private final InitService initService;
 
     @PostConstruct
     public void init() { initService.init(); }
@@ -126,6 +126,6 @@ public class TestData {
             noteRepository.save(note5);
             noteRepository.save(note6);
         }
-    }*/
+    }
 
 }

@@ -1,14 +1,10 @@
-package MOAI.moai.login.service;
+package MOAI.moai.member.service;
 
-import MOAI.moai.login.dto.LoginDTO;
-import MOAI.moai.login.response.LoginRes;
-import MOAI.moai.member.Member;
-import MOAI.moai.member.type.MemberType;
+import MOAI.moai.member.response.MyPageRes;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.mock.web.MockHttpServletResponse;
 
 import javax.transaction.Transactional;
 
@@ -17,12 +13,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Transactional
-class LoginServiceTest {
+class MemberServiceTest {
 
-    @Autowired LoginService loginService;
+    @Autowired MemberService memberService;
 
     @Test
-    void login() throws Exception {
+    void getMyPageInfo() throws Exception {
         /**
          *  given : given condition
          */
@@ -31,15 +27,14 @@ class LoginServiceTest {
         /**
          *  when  : execution
          */
-        LoginRes loginRes = loginService.login(new MockHttpServletResponse(),
-                new LoginDTO("token1", null, null, null));
+        MyPageRes myPageInfo = memberService.getMyPageInfo(1L);
 
 
         /**
          *  then  : result
          */
-        assertThat(loginRes.getDtype() == MemberType.COMPOSER);
-
+        assertThat(myPageInfo.getNickName().equals("김작곡닉네임"));
 
     }
+
 }
