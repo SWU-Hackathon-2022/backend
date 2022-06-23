@@ -36,8 +36,8 @@ public class NoteService {
     private final NoteRepository noteRepository;
     private final MemberRepository memberRepository;
 
-    public List<NoteListRes> getAllNotesByMember(HttpServletRequest request, HttpSession session) throws BaseException {
-        Long loginMemberId = LoginUser.getLoginMemberId(request, session);
+    public List<NoteListRes> getAllNotesByMember(HttpServletRequest request) throws BaseException {
+        Long loginMemberId = LoginUser.getLoginMemberId(request);
         if (loginMemberId == null) {
             throw new BaseException(BaseResponseStatus.INVALID_USER);
         }
@@ -56,8 +56,7 @@ public class NoteService {
                 List<Note> noteList = noteRepository.findAllByMusic(music);
                 for (Note note : noteList) {
                     if (note.getDtype() == NoteType.COMPOSER) {
-                        result.add(new NoteListRes(note.getMember().getName(), note.getMember().getProfileImgUrl(),
-                                note.getContent(), note.getCreatedDate()));
+                        result.add(new NoteListRes(note.getContent(), note.getCreatedDate()));
                     }
                 }
             }
@@ -66,8 +65,7 @@ public class NoteService {
             List<Note> noteList = noteRepository.findAllByMember(member);
             for (Note note : noteList) {
                 if (note.getDtype() == NoteType.ARTIST || note.getDtype() == NoteType.NORMAL) {
-                    result.add(new NoteListRes(note.getMusic().getComposer().getName(), note.getMusic().getComposer().getProfileImgUrl(),
-                            note.getContent(), note.getCreatedDate()));
+                    result.add(new NoteListRes(note.getContent(), note.getCreatedDate()));
                 }
             }
         }
@@ -76,9 +74,9 @@ public class NoteService {
 
     }
 
-    public NoteDetailRes getOneNoteDetail(Long noteId, HttpServletRequest request, HttpSession session) throws BaseException {
+    public NoteDetailRes getOneNoteDetail(Long noteId, HttpServletRequest request) throws BaseException {
         // 현재 로그인된 사용자 조회
-        Long loginMemberId = LoginUser.getLoginMemberId(request, session);
+        Long loginMemberId = LoginUser.getLoginMemberId(request);
         if (loginMemberId == null) {
             throw new BaseException(BaseResponseStatus.INVALID_USER);
         }
@@ -111,11 +109,11 @@ public class NoteService {
 
     }
 
-    public void sendArtistToComposerNote(HttpServletRequest request, HttpSession session, SendNoteDTO dto) throws BaseException {
+    public void sendArtistToComposerNote(HttpServletRequest request, SendNoteDTO dto) throws BaseException {
         Optional<Music> findMusic = musicRepository.findByMusicId(dto.getMusicId());
 
         // 현재 로그인된 사용자 조회
-        Long loginMemberId = LoginUser.getLoginMemberId(request, session);
+        Long loginMemberId = LoginUser.getLoginMemberId(request);
         if (loginMemberId == null) {
             throw new BaseException(BaseResponseStatus.INVALID_USER);
         }
@@ -132,9 +130,9 @@ public class NoteService {
 
     }
 
-    public void sendAcceptToArtistNote(HttpServletRequest request, HttpSession session, SendReplyDTO dto) throws BaseException {
+    public void sendAcceptToArtistNote(HttpServletRequest request, SendReplyDTO dto) throws BaseException {
         // 현재 로그인된 사용자 조회
-        Long loginMemberId = LoginUser.getLoginMemberId(request, session);
+        Long loginMemberId = LoginUser.getLoginMemberId(request);
         if (loginMemberId == null) {
             throw new BaseException(BaseResponseStatus.INVALID_USER);
         }
@@ -153,9 +151,9 @@ public class NoteService {
         noteRepository.save(note);
     }
 
-    public void sendDeclineToArtistNote(HttpServletRequest request, HttpSession session, SendReplyDTO dto) throws BaseException {
+    public void sendDeclineToArtistNote(HttpServletRequest request, SendReplyDTO dto) throws BaseException {
         // 현재 로그인된 사용자 조회
-        Long loginMemberId = LoginUser.getLoginMemberId(request, session);
+        Long loginMemberId = LoginUser.getLoginMemberId(request);
         if (loginMemberId == null) {
             throw new BaseException(BaseResponseStatus.INVALID_USER);
         }

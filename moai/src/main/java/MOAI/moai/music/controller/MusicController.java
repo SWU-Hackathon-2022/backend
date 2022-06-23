@@ -25,14 +25,14 @@ public class MusicController {
     private final MusicService musicService;
 
     @PostMapping("/music/new")
-    public BaseResponse<String> createNewComposerMusic(HttpServletRequest request, HttpSession session, CreateMusicDTO dto) throws BaseException {
-        musicService.createMusic(request, session, dto);
+    public BaseResponse<String> createNewComposerMusic(HttpServletRequest request, CreateMusicDTO dto) throws BaseException {
+        musicService.createMusic(request, dto);
         return new BaseResponse<>(BaseResponseStatus.SUCCESS);
     }
 
     @GetMapping("/music/{musicId}")
-    public BaseResponse<MainPageMusicRes> getMainPageMusicRes(@PathVariable Long musicId, HttpServletRequest request, HttpSession session)
+    public BaseResponse<MainPageMusicRes> getMainPageMusicRes(@PathVariable Long musicId, HttpServletRequest request)
             throws BaseException{
-        return new BaseResponse<>(musicService.getMainPageMusicRes(request, session, musicId));
+        return new BaseResponse<>(musicService.getMainPageMusicRes(request, musicId));
     }
 }

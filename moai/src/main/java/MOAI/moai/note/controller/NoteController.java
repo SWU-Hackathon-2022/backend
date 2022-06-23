@@ -25,36 +25,36 @@ public class NoteController {
     private final NoteService noteService;
 
     @PostMapping("/note/composer")
-    public BaseResponse<String> sendNoteToComposer(@RequestBody SendNoteDTO dto, HttpServletRequest request, HttpSession session)
+    public BaseResponse<String> sendNoteToComposer(@RequestBody SendNoteDTO dto, HttpServletRequest request)
             throws BaseException {
-        noteService.sendArtistToComposerNote(request, session, dto);
+        noteService.sendArtistToComposerNote(request, dto);
         return new BaseResponse<>(BaseResponseStatus.SUCCESS);
     }
 
     @PostMapping("/note/artist/accept")
-    public BaseResponse<String> sendAcceptNoteToArtist(@RequestBody SendReplyDTO dto, HttpServletRequest request, HttpSession session)
+    public BaseResponse<String> sendAcceptNoteToArtist(@RequestBody SendReplyDTO dto, HttpServletRequest request)
             throws BaseException {
-        noteService.sendAcceptToArtistNote(request, session, dto);
+        noteService.sendAcceptToArtistNote(request, dto);
         return new BaseResponse<>(BaseResponseStatus.SUCCESS);
     }
 
     @PostMapping("/note/artist/decline")
-    public BaseResponse<String> sendDeclineNoteToArtist(@RequestBody SendReplyDTO dto, HttpServletRequest request, HttpSession session)
+    public BaseResponse<String> sendDeclineNoteToArtist(@RequestBody SendReplyDTO dto, HttpServletRequest request)
             throws BaseException {
-        noteService.sendDeclineToArtistNote(request, session, dto);
+        noteService.sendDeclineToArtistNote(request, dto);
         return new BaseResponse<>(BaseResponseStatus.SUCCESS);
     }
 
     @GetMapping("/note")
-    public BaseResponse<List<NoteListRes>> getAllNotes(HttpServletRequest request, HttpSession session) throws BaseException {
+    public BaseResponse<List<NoteListRes>> getAllNotes(HttpServletRequest request) throws BaseException {
 
-        return new BaseResponse<>(noteService.getAllNotesByMember(request, session));
+        return new BaseResponse<>(noteService.getAllNotesByMember(request));
     }
 
     @GetMapping("/{noteId}/note")
-    public BaseResponse<NoteDetailRes> getOneNoteDetail(@PathVariable Long noteId, HttpServletRequest request, HttpSession session)
+    public BaseResponse<NoteDetailRes> getOneNoteDetail(@PathVariable Long noteId, HttpServletRequest request)
             throws BaseException {
-        return new BaseResponse<>(noteService.getOneNoteDetail(noteId, request, session));
+        return new BaseResponse<>(noteService.getOneNoteDetail(noteId, request));
     }
 
 }

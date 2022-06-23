@@ -19,35 +19,25 @@ public class Member extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private MemberType dtype;
 
-    @Column(name = "mbr_prof_img_url")
-    private String profileImgUrl;
-
-    @Column(name = "mbr_login_id")
-    private String loginId;
-
-    @Column(name = "mbr_pwd")
-    private String password;
-
-    @Column(name = "mbr_name")
-    private String name;
+    @Column(name = "mbr_token")
+    private String token;
 
     @Column(name = "mbr_nickname")
     private String nickName;
 
-    private void init (MemberType dtype, String profileImgUrl, String loginId, String password, String name,
+
+
+    private void init (MemberType dtype, String token,
                    String nickName) {
         this.dtype = dtype;
-        this.profileImgUrl = profileImgUrl;
-        this.loginId = loginId;
-        this.password = password;
-        this.name = name;
+        this.token = token;
         this.nickName = nickName;
     }
 
-    public static Member createMember(MemberType dtype, String profileImgUrl, String loginId, String password, String name,
+    public static Member createMember(MemberType dtype, String token,
                                       String nickName) {
         Member member = new Member();
-        member.init(dtype, profileImgUrl, loginId, password, name, nickName);
+        member.init(dtype, token, nickName);
         return member;
     }
 

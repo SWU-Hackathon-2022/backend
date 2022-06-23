@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -20,6 +21,7 @@ import java.util.Optional;
 @Service
 @Slf4j
 @RequiredArgsConstructor
+@Transactional
 public class MemberService {
 
     private final MemberRepository memberRepository;
@@ -42,7 +44,6 @@ public class MemberService {
             MyPageRes result = new MyPageRes();
             result.setMemberId(findMember.get().getMemberId());
             result.setNickName(findMember.get().getNickName());
-            result.setProfileImgUrl(findMember.get().getProfileImgUrl());
             result.setGenreList(genreList);
 
             result.setMusicResList(MyPageMusicRes.createMyPageMusicResList(musicList));

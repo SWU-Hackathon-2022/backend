@@ -13,7 +13,6 @@ public class MainPageMusicRes {
     private String musicThumbnailUrl;
     private String musicFileUrl;
     private String composerNickname;
-    private String composerThumbnailUrl;
     private String musicIntro;
     private Genre genre;
     private String hashTag;

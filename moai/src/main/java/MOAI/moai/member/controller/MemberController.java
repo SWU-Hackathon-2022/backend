@@ -25,7 +25,7 @@ public class MemberController {
 
     @GetMapping("/mypage")
     public BaseResponse<MyPageRes> mypage(HttpServletRequest request, HttpSession session) throws BaseException {
-        Long loginMemberId = getLoginMemberId(request, session);
+        Long loginMemberId = getLoginMemberId(request);
         if (loginMemberId == null) {
             throw new BaseException(BaseResponseStatus.INVALID_USER);
         }

@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class LoginRes {
 
-    private String cookieValue;
     private Long memberId;
     private String nickName;
     private MemberType dtype;

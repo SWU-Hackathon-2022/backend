@@ -12,7 +12,6 @@ import MOAI.moai.music.Music;
 import MOAI.moai.music.repository.MusicRepository;
 import MOAI.moai.note.Note;
 import MOAI.moai.note.repository.NoteRepository;
-import MOAI.moai.note.type.NoteType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -49,26 +48,11 @@ public class TestData {
         public void init() {
 
             // member 추가
-            Member member1 = createMember(MemberType.COMPOSER,
-                    File.separator + "resources" + File.separator + "memberThumbnail" + File.separator + "회원썸네일1.jpg",
-                    "user1", "pwd1", "김작곡",
-                    "김작곡닉네임");
-            Member member2 = createMember(MemberType.COMPOSER,
-                    File.separator + "resources" + File.separator + "memberThumbnail" + File.separator + "회원썸네일1.jpg",
-                    "user2", "pwd2", "이작곡",
-                    "이작곡닉네임");
-            Member member3 = createMember(MemberType.ARTIST,
-                    File.separator + "resources" + File.separator + "memberThumbnail" + File.separator + "회원썸네일1.jpg"
-                    , "user3", "pwd3", "김아티스트",
-                    "김아티스트닉네임");
-            Member member4 = createMember(MemberType.ARTIST,
-                    File.separator + "resources" + File.separator + "memberThumbnail" + File.separator + "회원썸네일1.jpg"
-                    , "user4", "pwd4", "이아티스트",
-                    "이아티스트닉네임");
-            Member member5 = createMember(MemberType.ARTIST,
-                    File.separator + "resources" + File.separator + "memberThumbnail" + File.separator + "회원썸네일1.jpg"
-                    , "user5", "pwd5", "박아티스트",
-                    "박아티스트닉네임");
+            Member member1 = createMember(MemberType.COMPOSER, "token1", "김작곡닉네임");
+            Member member2 = createMember(MemberType.COMPOSER, "token2", "이작곡닉네임");
+            Member member3 = createMember(MemberType.ARTIST, "token3", "김아티스트닉네임");
+            Member member4 = createMember(MemberType.ARTIST, "token4", "이아티스트닉네임");
+            Member member5 = createMember(MemberType.ARTIST, "token5", "박아티스트닉네임");
             memberRepository.save(member1);
             memberRepository.save(member2);
             memberRepository.save(member3);
@@ -91,20 +75,20 @@ public class TestData {
 
             // music 추가
             Music music1 = createMusic(member1, "노래이름1", Genre.BALLAD, "이것은 노래이름1 입니다!", "#발라드 #신남",
-                    File.separator + "resources" + File.separator + "musicFile" + File.separator + "음악파일1.mp3",
-                    File.separator + "resources" + File.separator + "musicThumbnail" + File.separator + "음악썸네일1.jpg");
+                    File.separator + "resources" + File.separator + "musicFile" + File.separator + "musicFile1.mp3",
+                    File.separator + "resources" + File.separator + "musicThumbnail" + File.separator + "musicThumbnail1.png");
             Music music2 = createMusic(member1, "노래이름2", Genre.POP, "이것은 노래이름2 입니다!", "#팝 #신남",
-                    File.separator + "resources" + File.separator + "musicFile" + File.separator + "음악파일2.mp3",
-                    File.separator + "resources" + File.separator + "musicThumbnail" + File.separator + "음악썸네일2.jpg");
+                    File.separator + "resources" + File.separator + "musicFile" + File.separator + "musicFile2.mp3",
+                    File.separator + "resources" + File.separator + "musicThumbnail" + File.separator + "musicThumbnail2.jpg");
             Music music3 = createMusic(member1, "노래이름3", Genre.ROCK, "이것은 노래이름3 입니다!", "#락 #신남",
-                    File.separator + "resources" + File.separator + "musicFile" + File.separator + "음악파일3.mp3",
-                    File.separator + "resources" + File.separator + "musicThumbnail" + File.separator + "음악썸네일3.jpg");
+                    File.separator + "resources" + File.separator + "musicFile" + File.separator + "musicFile3.mp3",
+                    File.separator + "resources" + File.separator + "musicThumbnail" + File.separator + "musicThumbnail3.png");
             Music music4 = createMusic(member2, "노래이름4", Genre.DANCE, "이것은 노래이름4 입니다!", "#댄스 #신남",
-                    File.separator + "resources" + File.separator + "musicFile" + File.separator + "음악파일4.mp3",
-                    File.separator + "resources" + File.separator + "musicThumbnail" + File.separator + "음악썸네일4.jpg");
+                    File.separator + "resources" + File.separator + "musicFile" + File.separator + "musicFile4.mp3",
+                    File.separator + "resources" + File.separator + "musicThumbnail" + File.separator + "musicThumbnail4.jpg");
             Music music5 = createMusic(member2, "노래이름5", Genre.DISCO, "이것은 노래이름5 입니다!", "#디스코 #신남",
-                    File.separator + "resources" + File.separator + "musicFile" + File.separator + "음악파일5.mp3",
-                    File.separator + "resources" + File.separator + "musicThumbnail" + File.separator + "음악썸네일5.jpg");
+                    File.separator + "resources" + File.separator + "musicFile" + File.separator + "musicFile5.mp3",
+                    File.separator + "resources" + File.separator + "musicThumbnail" + File.separator + "musicThumbnail5.jpg");
 
             musicRepository.save(music1);
             musicRepository.save(music2);

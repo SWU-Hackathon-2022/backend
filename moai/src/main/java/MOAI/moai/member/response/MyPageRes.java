@@ -14,7 +14,6 @@ import java.util.List;
 public class MyPageRes {
     private Long memberId;
     private String nickName;
-    private String profileImgUrl;
     private List<Genre> genreList;
     private List<MyPageMusicRes> musicResList;
 }

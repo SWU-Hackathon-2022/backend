@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 import static MOAI.moai.common.file.FileUpload.musicFileUpload;
@@ -24,6 +25,7 @@ import static MOAI.moai.common.file.FileUpload.musicThumbnailUpload;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 @Slf4j
 public class MusicService {
 
@@ -31,9 +33,9 @@ public class MusicService {
     private final MemberRepository memberRepository;
     private final MusicQueryRepository musicQueryRepository;
 
-    public Long createMusic(HttpServletRequest request, HttpSession session, CreateMusicDTO dto) throws BaseException{
+    public Long createMusic(HttpServletRequest request, CreateMusicDTO dto) throws BaseException{
         try {
-            Long loginMemberId = LoginUser.getLoginMemberId(request, session);
+            Long loginMemberId = LoginUser.getLoginMemberId(request);
             if (loginMemberId == null) {
                 throw new BaseException(BaseResponseStatus.INVALID_USER);
             }
@@ -56,8 +58,8 @@ public class MusicService {
         }
     }
 
-    public MainPageMusicRes getMainPageMusicRes (HttpServletRequest request, HttpSession session, Long musicId) throws BaseException{
-        Long loginMemberId = LoginUser.getLoginMemberId(request, session);
+    public MainPageMusicRes getMainPageMusicRes (HttpServletRequest request, Long musicId) throws BaseException{
+        Long loginMemberId = LoginUser.getLoginMemberId(request);
         if (loginMemberId == null) {
             throw new BaseException(BaseResponseStatus.INVALID_USER);
         }
@@ -75,7 +77,6 @@ public class MusicService {
         }
 
         return new MainPageMusicRes(findMusic.getThumbnailUrl(), findMusic.getFileUrl(),
-                findMusic.getComposer().getNickName(), findMusic.getComposer().getProfileImgUrl(),
-                findMusic.getIntroduction(), findMusic.getGenre(), findMusic.getHashTag());
+                findMusic.getComposer().getNickName(), findMusic.getIntroduction(), findMusic.getGenre(), findMusic.getHashTag());
     }
 }

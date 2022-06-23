@@ -11,8 +11,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class NoteListRes {
 
-    private String artistName;
-    private String artistProfileImgUrl;
     private String content;
     private LocalDateTime time;
 
